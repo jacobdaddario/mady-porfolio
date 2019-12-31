@@ -15,6 +15,7 @@ user = User.create(
 5.times do
 	user.portfolio_items.create(
 		title: 'Test',
-		description: 'This is a test portfolio item.'
+		description: 'This is a test portfolio item.',
+		youtube_id: 'dQw4w9WgXcQ'
 	)
 end
