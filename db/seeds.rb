@@ -16,6 +16,7 @@ user = User.create(
 	user.portfolio_items.create(
 		title: 'Test',
 		description: 'This is a test portfolio item.',
-		youtube_id: 'dQw4w9WgXcQ'
+		youtube_id: 'dQw4w9WgXcQ',
+		youtube_url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
 	)
 end

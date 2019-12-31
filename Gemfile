@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 # Managing users in the application
 gem 'devise'
+# Used to easily rip Youtube ids from their url
+gem 'youtube_id'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
