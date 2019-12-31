@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :portfolio_items do
   	collection do
   		get :home
