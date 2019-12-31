@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.create(
+	email: 'test@example.com',
+	password: 'password',
+	password_confirmation: 'password'
+)
+
+5.times do
+	user.portfolio_items.create(
+		title: 'Test',
+		description: 'This is a test portfolio item.'
+	)
+end

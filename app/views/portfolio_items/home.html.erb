@@ -1,0 +1,8 @@
+<div class=panel>
+	<% @portfolio_items.each do |item| %>
+		<div class=panel-row>
+			<%= content_tag(:h3, item.title) %>
+			<%= content_tag(:p, item.description) %>
+		</div>
+	<% end %>
+</div>

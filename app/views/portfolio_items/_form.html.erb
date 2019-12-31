@@ -1,8 +1,6 @@
 <%= form_with(model: portfolio_item, local: true) do |form| %>
   <% if portfolio_item.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(portfolio_item.errors.count, "error") %> prohibited this portfolio_item from being saved:</h2>
-
       <ul>
         <% portfolio_item.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -19,11 +17,6 @@
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
   </div>
 
   <div class="actions">
