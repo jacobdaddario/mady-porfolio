@@ -10,10 +10,8 @@
   <%= @portfolio_item.description %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @portfolio_item.user_id %>
-</p>
+<% if user_signed_in? %>
+	<%= link_to 'Edit', edit_portfolio_item_path(@portfolio_item) %> |
+<% end %>
 
-<%= link_to 'Edit', edit_portfolio_item_path(@portfolio_item) %> |
 <%= link_to 'Back', portfolio_items_path %>
