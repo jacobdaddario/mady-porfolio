@@ -3,6 +3,11 @@
   <%= @post.title %>
 </p>
 
+<div>
+	<p>Content:</p>
+	<%= @post.content %>
+</div>
+
 <% if user_signed_in? %>
 	<%= link_to 'Edit', edit_post_path(@post) %> |
 <% end %>
