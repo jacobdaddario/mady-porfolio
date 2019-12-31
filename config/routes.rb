@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :portfolio_items do
+  	collection do
+  		get :home
+  	end
+  end
+
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root to: 'portfolio_items#home'
 end
