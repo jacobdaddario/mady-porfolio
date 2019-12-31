@@ -69,7 +69,6 @@ class PortfolioItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def portfolio_item_params
-      params.require(:portfolio_item).permit(:title, :description, :youtube_url, 
-        :user_id)
+      params.require(:portfolio_item).permit(:title, :description, :youtube_url)
     end
 end
