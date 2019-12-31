@@ -1,7 +1,7 @@
 class PortfolioItemsController < ApplicationController
   before_action :set_portfolio_item, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:new, :create]
-  before_action :authenticate_user!, except: [:home, :index]
+  before_action :authenticate_user!, except: [:home, :index, :show]
 
   # GET /portfolio_items
   def index
