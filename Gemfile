@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 # Used to easily rip Youtube ids from their url
 gem 'youtube_id'
+# Used with AWS in order to implement ActiveStorage uploads
+gem 'aws-sdk-s3'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

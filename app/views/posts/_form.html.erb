@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :header_image %>
+    <%= form.file_field :header_image, direct_upload: true %>
+  </div>
+
+  <div class="field">
     <%= form.label :content %>
     <%= form.rich_text_area :content %>
   </div>
