@@ -10,7 +10,9 @@
 
 <div>
 	<p>Header Image:</p>
-	<%= image_tag @post.header_image.variant(resize_to_limit: [100, 100]) %>
+	<% if @post.header_image.variable? %>
+		<%= image_tag @post.header_image.variant(resize_to_limit: [100, 100]) %>
+	<% end %>
 </div>
 
 <% if user_signed_in? %>
