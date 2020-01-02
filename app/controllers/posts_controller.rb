@@ -29,7 +29,7 @@ class PostsController < ApplicationController
       flash[:succes] = 'Post was successfully created.' 
       redirect_to @post
     else
-      flash.now[:danger] = "The form contains #{helpers.pluralize(@portfolio_item.errors.count, 'error')}"
+      flash.now[:danger] = "The form contains #{helpers.pluralize(@post.errors.count, 'error')}"
       render :new
     end
   end
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
       flash[:succes] = 'Post was successfully updated.' 
       redirect_to @post
     else
-      flash.now[:danger] = "The form contains #{helpers.pluralize(@portfolio_item.errors.count, 'error')}"
+      flash.now[:danger] = "The form contains #{helpers.pluralize(@post.errors.count, 'error')}"
       render :edit
     end
   end
