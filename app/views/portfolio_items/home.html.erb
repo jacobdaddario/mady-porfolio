@@ -1,8 +1,14 @@
-<div class=panel>
-	<% @portfolio_items.each do |item| %>
-		<div class=panel-row>
-			<%= link_to(content_tag(:h3, item.title), item) %>
-			<%= content_tag(:p, item.description) %>
-		</div>
-	<% end %>
+<div class='row row--hero'>
+	<div class='panel'>
+		<% @portfolio_items.each do |item| %>
+			<div class='panel-item'>
+				<%= link_to(content_tag(:h3, item.title, class: 'panel-text header-link-text'), item, class: 'header-link') %>
+				<%= content_tag(:p, item.description, class: 'panel-text') %>
+			</div>
+		<% end %>
+	</div>
+	<div class='identifying-block'>
+		<%= image_tag 'headshot.jpeg', class: 'headshot' %>
+		<h1 class='header-text'>Madisyn Daddario</h1>
+	</div>
 </div>

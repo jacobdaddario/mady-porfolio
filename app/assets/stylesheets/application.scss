@@ -17,6 +17,127 @@
 
 // Colors
 $crimson: #990000;
+$gray:  #F8F8F8;
+$dark-gray: #A9A9A9;
+$white: #FFFFFF;
+
+// App fonts
+p, h1, h2, h3, li, ul, a, label, div {
+  font-family: 'Open Sans', sans-serif;
+}
+
+// Baseline styling
+html {
+  background-color: $gray;
+}
+
+body {
+  background-color: transparent;
+  margin: 0;
+}
+
+.container {
+  padding: 2rem 4rem 2rem 7rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  justify-content: flex-start;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.panel {
+  padding: 1rem 2rem 2rem 2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  justify-content: flex-start;
+  background-color: $white;
+  border: 1px solid $dark-gray;
+  border-radius: 5px;
+  min-width: 35%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.panel:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.5), 0 10px 10px rgba(0,0,0,0.5);
+}
+
+.panel-item {
+  padding: 1rem 0;
+  width: 100%;
+  border-bottom: 1px solid $crimson;
+}
+
+.panel-text {
+  margin: 0.5rem 0;
+}
+
+// Home page styling
+.hero {
+  background: url(ou_campus.jpg) no-repeat center center scroll; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.row--hero {
+  min-height: 80vh;
+}
+
+.identifying-block {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.headshot {
+  border: 5px solid $white;
+  border-radius: 50%;
+  width: 15rem;
+  height: 15rem;
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.headshot:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.5), 0 10px 10px rgba(0,0,0,0.5);
+}
+
+.header-text {
+  font-family: 'Merriweather', serif;
+  font-size: 42px;
+  color: $white;
+  text-shadow:
+    -1px -1px 0 rgba(0,0,0,0.19),  
+    1px -1px 0 rgba(0,0,0,0.19),
+    -1px 1px 0 rgba(0,0,0,0.19),
+    1px 1px 0 rgba(0,0,0,0.19);
+}
+
+.header-link {
+  text-decoration: none;
+  color: $crimson;
+}
+
+.header-link:hover {
+  color: $crimson;
+}
+
+.header-link-text {
+  font-size: 24px;
+}
 
 // Direct Upload CSS for ActiveStorage
 .direct-upload {
