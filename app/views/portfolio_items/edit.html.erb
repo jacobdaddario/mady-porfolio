@@ -1,6 +1,7 @@
-<h1>Editing Portfolio Item</h1>
+<% content_for :header do %>
+	<h1>Editing Portfolio Item</h1>
+<% end %>
 
 <%= render 'form', portfolio_item: @portfolio_item %>
 
 <%= link_to 'Show', @portfolio_item %> |
-<%= link_to 'Back', portfolio_items_path %>

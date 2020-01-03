@@ -1,4 +1,4 @@
-<%= form_with(model: portfolio_item, local: true) do |form| %>
+<%= form_with(model: portfolio_item, local: true, class:'form-style') do |form| %>
   <% if portfolio_item.errors.any? %>
     <div id="error_explanation">
       <ul>
@@ -9,23 +9,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <%= yield :header %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+  <ul>
+    <li>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </li>
 
-  <div class="field">
-    <%= form.label :youtube_url %>
-    <%= form.text_field :youtube_url %>
-  </div>
+    <li>
+      <%= form.label :description %>
+      <%= form.text_area :description, class:'textarea' %>
+    </li>
+
+    <li>
+      <%= form.label :youtube_url %>
+      <%= form.text_field :youtube_url %>
+    </li>
 
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <li>
+      <%= form.submit %>
+    </li>
+  </ul>
 <% end %>
