@@ -1,6 +1,6 @@
 <%= form_with(model: post, local: true, class:'form-style') do |form| %>
   <% if post.errors.any? %>
-    <div id="error_explanation">
+    <div>
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
@@ -11,29 +11,20 @@
     </div>
   <% end %>
 
-  <%= yield :header %>
-
   <ul>
-    <li>
-      <%= form.label :title %>
-      <%= form.text_field :title %>
-    </li>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
 
-    <li>
-      <% if @post.header_image.attached? && @post.header_image.variable? %>
-        <%= image_tag @post.header_image.variant(resize_to_limit: [100, 100]) %>
-      <% end %>
-      <%= form.label :header_image %>
-      <%= form.file_field :header_image, direct_upload: true %>
-    </li>
+    <% if @post.header_image.attached? && @post.header_image.variable? %>
+      <%= image_tag @post.header_image.variant(resize_to_limit: [100, 100]) %>
+    <% end %>
+    
+    <%= form.label :header_image %>
+    <%= form.file_field :header_image, direct_upload: true %>
 
-    <li>
-      <%= form.label :content %>
-      <%= form.rich_text_area :content %>
-    </li>
+    <%= form.label :content %>
+    <%= form.rich_text_area :content %>
 
-    <li>
-      <%= form.submit %>
-    </li>
+    <%= form.submit %>
   </ul>
 <% end %>

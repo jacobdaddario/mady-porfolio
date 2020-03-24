@@ -1,14 +1,11 @@
-<div class='row row--hero'>
-	<div class='panel'>
-		<% @portfolio_items.each do |item| %>
-			<div class='panel-item'>
-				<%= link_to(content_tag(:h3, item.title, class: 'panel-text header-link-text'), item, class: 'header-link') %>
-				<%= content_tag(:p, item.description, class: 'panel-text') %>
-			</div>
-		<% end %>
-	</div>
-	<div class='identifying-block'>
-		<%= image_tag 'headshot.jpeg', class: 'headshot' %>
-		<h1 class='header-text'>Madisyn Daddario</h1>
-	</div>
-</div>
+<% unless @portfolio_items.empty? %>
+	<% @portfolio_items.each do |item| %>
+		<h3>Portfolio Items</h3>
+		<%= link_to(content_tag(:h3, item.title, class: 'panel-text header-link-text'), item, class: 'header-link') %>
+		<%= content_tag(:p, item.description, class: 'panel-text') %>
+	<% end %>
+<% else %>
+	<%= inline_svg_tag 'empty.svg', width: 300, height: 'auto' %>
+	<p>Looks like there are no porfolio items published yet.</p>
+<% end %>
+<%= image_tag 'headshot.jpeg', class: 'headshot' %>

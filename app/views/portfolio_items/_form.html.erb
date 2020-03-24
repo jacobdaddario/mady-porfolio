@@ -1,6 +1,6 @@
-<%= form_with(model: portfolio_item, local: true, class:'form-style') do |form| %>
+<%= form_with(model: portfolio_item, local: true) do |form| %>
   <% if portfolio_item.errors.any? %>
-    <div id="error_explanation">
+    <div>
       <ul>
         <% portfolio_item.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -8,28 +8,14 @@
       </ul>
     </div>
   <% end %>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
 
-  <%= yield :header %>
+    <%= form.label :description %>
+    <%= form.text_area :description, class:'textarea' %>
 
-  <ul>
-    <li>
-      <%= form.label :title %>
-      <%= form.text_field :title %>
-    </li>
+    <%= form.label :youtube_url %>
+    <%= form.text_field :youtube_url %>
 
-    <li>
-      <%= form.label :description %>
-      <%= form.text_area :description, class:'textarea' %>
-    </li>
-
-    <li>
-      <%= form.label :youtube_url %>
-      <%= form.text_field :youtube_url %>
-    </li>
-
-
-    <li>
-      <%= form.submit %>
-    </li>
-  </ul>
+    <%= form.submit %>
 <% end %>
