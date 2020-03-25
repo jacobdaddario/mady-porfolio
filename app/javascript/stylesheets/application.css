@@ -2,6 +2,14 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+.nav-item {
+	@apply text-pink-200 font-light py-4 px-6 tracking-wide;
+}
+
+.nav-item:hover {
+	@apply text-white
+}
+
 .link {
 	@apply text-pink-600;
 }

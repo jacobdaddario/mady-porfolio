@@ -1,14 +1,14 @@
-<nav>
-  <ul>
-    <li><%= link_to("Home", root_path) %></li>
-    <li><%= link_to("Portfolio", portfolio_items_path) %></li>
-    <li><%= link_to("Blog", posts_path) %></li>
+<nav class='absolute left-0 top-0 bg-pink-600 w-full px-32 shadow-md'>
+  <ul class='flex'>
+    <li class='nav-item'><%= link_to("Home", root_path) %></li>
+    <li class='nav-item'><%= link_to("Portfolio", portfolio_items_path) %></li>
+    <li class='nav-item'><%= link_to("Blog", posts_path) %></li>
     <% if user_signed_in? %>
-    	<li><%= link_to("New Portfolio Item", new_portfolio_item_path) %></li>
-	    <li><%= link_to("New Blog Post", new_post_path) %></li>
-      <li><%= link_to("Log Out", destroy_user_session_path, method: :delete) %></li>
+    	<li class='nav-item'><%= link_to("New Portfolio Item", new_portfolio_item_path) %></li>
+	    <li class='nav-item'><%= link_to("New Blog Post", new_post_path) %></li>
+      <li class='nav-item ml-auto'><%= link_to("Log Out", destroy_user_session_path, method: :delete) %></li>
     <% else %>
-      <li><%= link_to("Log In", new_user_session_path) %></li>
+      <li class='nav-item ml-auto'><%= link_to("Log In", new_user_session_path) %></li>
     <% end %>
   </ul>
 </nav>
