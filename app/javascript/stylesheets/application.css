@@ -1,3 +1,15 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.link {
+	@apply text-pink-600;
+}
+
+.link:hover {
+	@apply border-b-2 border-teal-500;
+}
+
+.card {
+	@apply bg-white rounded shadow-xl;
+}

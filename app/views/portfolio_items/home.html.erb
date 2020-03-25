@@ -1,11 +1,43 @@
-<% unless @portfolio_items.empty? %>
-	<% @portfolio_items.each do |item| %>
-		<h3>Portfolio Items</h3>
-		<%= link_to(content_tag(:h3, item.title, class: 'panel-text header-link-text'), item, class: 'header-link') %>
-		<%= content_tag(:p, item.description, class: 'panel-text') %>
-	<% end %>
-<% else %>
-	<%= inline_svg_tag 'empty.svg', width: 300, height: 'auto' %>
-	<p>Looks like there are no porfolio items published yet.</p>
-<% end %>
-<%= image_tag 'headshot.jpeg', class: 'headshot' %>
+<div class='flex h-screen'>
+	<div class='bg-gray-100 w-3/5 pr-8 pl-4 flex items-end'>
+		<%= image_tag 'mady_headshot.png', class: 'w-108' %>
+		<div class='w-124 p-4 -ml-24 self-center card'>
+			<div class='relative overflow-hidden pt-responsive'>
+				<iframe class='absolute top-0 left-0 w-full h-full' src="https://www.youtube.com/embed/uVI_Rc70K8w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class='mt-8 pb-4 border-b border-teal-500'>
+				<h1 class='text-3xl font-semibold font-headline leading-tight text-gray-900'>
+					Sports news delivered 
+					<br><span class='text-pink-600'>on the money every time.</span>
+				</h1>
+			</div>
+			<div class='mt-4'>
+				<p class='text-md text-gray-700 leading-snug tracking-wide'>
+					When I get in front of the camera to deliver my segment, I make
+					make sure that it gets delivered correctly and with passion every
+					time. Come take a look at my some of my work on this page or
+					<%= link_to "in my portfolio", portfolio_items_path, class: 'link' %>
+					or read some of my writing <%= link_to "on my blog", posts_path, class: 'link' %>.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class='bg-gray-300 w-2/5 px-8 flex flex-col justify-center'>
+		<div class='p-6 text-center'>
+			<h2 class='text-gray-900 leading-tight text-4xl'>Portfolio Items</h2>
+		</div>
+		<div class='card p-4 w-full mx-auto text-center'>
+			<!-- Todo: come backa and style these  -->
+			<% unless @portfolio_items.empty? %>
+				<% @portfolio_items.each do |item| %>
+					<h3>Portfolio Items</h3>
+					<%= link_to(content_tag(:h3, item.title), item) %>
+					<%= content_tag(:p, item.description) %>
+				<% end %>
+			<% else %>
+				<%= image_tag 'empty.svg', class: 'w-64 h-auto mx-auto mt-4 mb-8' %>
+				<p class='text-md text-gray-700 tracking-wide'>Looks like there are no porfolio items published yet.</p>
+			<% end %>
+		</div>
+	</div>
+</div>

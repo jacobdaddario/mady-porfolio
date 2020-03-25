@@ -1,9 +1,9 @@
 class PortfolioItem < ApplicationRecord
   belongs_to :user
 
-  default_scope { order(created_at: :desc) }
-
   before_validation :strip_id
+  
+  has_one_attached :preview_image
 
   validates :title, presence: true, length: { maximum: 120 }
   validates :description, presence: true, length: { maximum: 450 }
