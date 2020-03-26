@@ -1,18 +1,32 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <h1>Log in</h1>
+<div class='pt-16 pb-4 w-full max-w-2xl mx-auto text-center'>
+  <h1 class='text-xl text-gray-700'>Log In</h1>
+</div>
 
-  <%= f.label :email %>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class='card form-card w-1/3'>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class='block my-4'>
+      <%= f.label :email, class: 'hidden' %>
+      <%= f.email_field :email, class: "form-input input w-full #{"input-error" unless flash[:alert].nil?}", autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, autocomplete: "current-password" %>
+    <div class='block my-4'>
+      <%= f.label :password, class: 'hidden' %>
+      <%= f.password_field :password, class: "form-input input w-full #{"input-error" unless flash[:alert].nil?}", autocomplete: "current-password", placeholder: "Password" %>
+      <%= content_tag(:p, flash[:alert], class:"text-red-600 text-sm") unless flash[:alert].nil? %> 
+    </div>
 
-  <% if devise_mapping.rememberable? %>
-    <%= f.check_box :remember_me %>
-    <%= f.label :remember_me %>
+
+    <% if devise_mapping.rememberable? %>
+      <div class='block my-4'>
+        <%= f.check_box :remember_me, class: 'form-checkbox' %>
+        <%= f.label :remember_me, class: 'label inline-label ml-2' %>
+      </div>
+    <% end %>
+
+    <div class='w-full mt-6'>
+      <%= f.submit "Log in", class: 'button w-1/3 mx-auto shadow-md' %>
+    </div>
   <% end %>
-
-  <%= f.submit "Log in" %>
-<% end %>
+</div>
 
 <%= render "devise/shared/links" %>
