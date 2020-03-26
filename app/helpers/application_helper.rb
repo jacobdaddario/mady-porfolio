@@ -4,7 +4,7 @@ module ApplicationHelper
 
 		if errors.include?(field)
 			errors.full_messages_for(field).each do |error|
-				concat content_tag(:p, error, class: 'pt-2 text-red-600 text-sm')
+				concat content_tag(:p, error, class: 'text-red-600 text-sm')
 			end
 		end
 

@@ -25,3 +25,27 @@
 .label {
 	@apply block text-gray-900 py-2 text-lg;
 }
+
+.form-card {
+	@apply max-w-3xl px-12 py-8 mb-16 mx-auto;
+}
+
+.button {
+	@apply px-4 py-2 bg-teal-500 text-white rounded cursor-pointer;
+}
+
+.button:focus {
+	@apply outline-none shadow-outline;
+}
+
+.button:hover {
+	@apply bg-teal-600;
+}
+
+.input {
+	@apply border-gray-400 bg-gray-200 text-gray-900 mb-2;
+}
+
+.input-error {
+	@apply bg-red-100 border-red-500;
+}

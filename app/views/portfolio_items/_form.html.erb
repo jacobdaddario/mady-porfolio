@@ -1,26 +1,28 @@
-<%= form_with(model: portfolio_item, local: true) do |form| %>
-  <% if portfolio_item.errors.any? %>
-    <div>
-      <ul>
-        <% portfolio_item.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class='card form-card'>
+  <%= form_with(model: portfolio_item, local: true) do |form| %>
+    <div class='block mb-4'>
+      <%= form.label :youtube_url, class: 'label', text: "YouTube URL" %>
+      <%= form.text_field :youtube_url, class: "form-input input w-1/2 #{"input-error" if @portfolio_item.errors.include?(:youtube_url)}", placeholder: "Please include the full URL" %>
+      <%= inline_error(:youtube_url, @portfolio_item) %>
     </div>
-  <div class='card max-w-lg'>
-    <% end %>
-      <%= form.label :title %>
-      <%= form.text_field :title, class: 'form-input' %>
 
-      <%= form.label :description %>
-      <%= form.text_area :description, class:'form-textarea' %>
+    <div class='block my-4'>
+      <%= form.label :title, class: 'label' %>
+      <%= form.text_field :title, class: "form-input input w-1/2 #{"input-error" if @portfolio_item.errors.include?(:title)}" %>
+      <%= inline_error(:title, @portfolio_item) %>
+    </div>
 
-      <%= form.label :preview_image %>
-      <%= form.file_field :preview_image, direct_upload: true %>
+    <div class='block my-4'>
+      <%= form.label :description, class: 'label' %>
+      <%= form.text_area :description, class: "form-textarea input w-full #{"input-error" if @portfolio_item.errors.include?(:description)}" %>
+      <%= inline_error(:description, @portfolio_item) %>
+    </div>
 
-      <%= form.label :youtube_url %>
-      <%= form.text_field :youtube_url %>
+    <div class='block my-4'>
+      <%= form.label :preview_image, class: 'label' %>
+      <%= form.file_field :preview_image, class: "text-gray-900", direct_upload: true %>
+    </div>
 
-      <%= form.submit %>
+    <%= form.submit class: 'button shadow-md mt-4' %>
   <% end %>
 </div>

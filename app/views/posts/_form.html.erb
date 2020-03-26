@@ -1,8 +1,8 @@
-<div class='card max-w-3xl px-8 py-8 mb-16 mx-auto'>
+<div class='card form-card'>
   <%= form_with(model: post, local: true, class:'form-style') do |form| %>
-    <div class='block mb-8 w-full'>
+    <div class='block mb-8'>
       <%= form.label :title, class: 'label' %>
-      <%= form.text_field :title, class: "form-input w-1/2 border-gray-400 bg-gray-200 text-gray-900 #{"bg-red-100 border-red-500" if @post.errors.include?(:title)}" %>
+      <%= form.text_field :title, class: "form-input input w-1/2 #{"input-error" if @post.errors.include?(:title)}" %>
       <%= inline_error(:title, @post) %>
     </div>
 
@@ -17,10 +17,10 @@
 
     <div class='block my-8'>
       <%= form.label :content, class: 'label' %>
-      <%= form.rich_text_area :content, class: "border-gray-400 bg-gray-200 #{"bg-red-100 border-red-500" if @post.errors.include?(:title)}" %>
+      <%= form.rich_text_area :content, class: "input #{"input-error" if @post.errors.include?(:content)}" %>
       <%= inline_error(:content, @post) %>
     </div>
 
-    <%= form.submit class: 'px-4 py-2 bg-teal-500 text-white rounded shadow-md hover:bg-teal-700 cursor-pointer' %>
+    <%= form.submit class: 'button shadow-md' %>
   <% end %>
 </div>

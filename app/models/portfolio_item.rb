@@ -8,7 +8,7 @@ class PortfolioItem < ApplicationRecord
   validates :title, presence: true, length: { maximum: 120 }
   validates :description, presence: true, length: { maximum: 450 }
   validates :youtube_url, presence: true, format: { with: /\A(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+\z/,
-  	message: "requires a valid Youtube url."
+  	message: "requires a complete YouTube URL"
 	}
 
 	private
