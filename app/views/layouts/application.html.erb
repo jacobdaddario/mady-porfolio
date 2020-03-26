@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class='<%= 'hero' if current_page?("/") %>'>
+<html>
   <head>
     <title>Personal Portfolio</title>
     <%= csrf_meta_tags %>
@@ -12,15 +12,8 @@
   <body>
     <%= render 'layouts/navbar' %>
 
-    <div class='pt-8'>
-      <% flash.each do |message_type, message| %>
-        <div>
-          <%= message %>
-        </div>
-      <% end %>
-
+    <div class='pt-8 pb-2 bg-gray-300 min-h-screen'>
       <%= yield %>
     </div>
-
   </body>
 </html>

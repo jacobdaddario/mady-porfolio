@@ -21,3 +21,7 @@
 .card {
 	@apply bg-white rounded shadow-xl;
 }
+
+.label {
+	@apply block text-gray-900 py-2 text-lg;
+}
