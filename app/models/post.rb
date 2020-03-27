@@ -6,5 +6,6 @@ class Post < ApplicationRecord
   default_scope { order(created_at: :desc) }
 
   validates :title, presence: true, length: { maximum: 120 }
+  validates :summary, presence: true, length: { maximum: 450 }
   validates :content, presence: true
 end

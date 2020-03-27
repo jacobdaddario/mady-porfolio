@@ -20,9 +20,12 @@
 
     <div class='block my-4'>
       <%= form.label :preview_image, class: 'label' %>
+      <% if @portfolio_item.preview_image.attached? && @portfolio_item.preview_image.variable? %>
+        <%= image_tag @portfolio_item.preview_image.variant(resize_to_limit: [300, 300]), class: 'mb-4' %>
+      <% end %>
       <%= form.file_field :preview_image, class: "text-gray-900", direct_upload: true %>
     </div>
 
-    <%= form.submit class: 'button shadow-md mt-4' %>
+    <%= form.submit class: 'button shadow-md mt-6' %>
   <% end %>
 </div>

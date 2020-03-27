@@ -1,19 +1,17 @@
-<p>
-  <strong>Title:</strong>
-  <%= @portfolio_item.title %>
-</p>
+<div class='w-fill max-w-2xl p-4 mt-16 mb-12 mx-auto card'>
+	<div class='relative overflow-hidden pt-responsive'>
+		<iframe class='absolute top-0 left-0 w-full h-full' src="https://www.youtube.com/embed/<%= @portfolio_item.youtube_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+	<div class='mt-6 pb-4 border-b border-pink-500'>
+		<%= content_tag :h1, @portfolio_item.title, class: 'text-3xl font-semibold font-headline leading-none text-gray-900' %>
+	</div>
+	<div class='mt-4'>
+		<%= content_tag :p, @portfolio_item.description, class: 'text-md text-gray-700 leading-snug tracking-wide' %>
+	</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @portfolio_item.description %>
-</p>
-
-<div>
-	<iframe src='https://www.youtube.com/embed/<%= @portfolio_item.youtube_id %>?rel=0&autoplay=0' frameborder='0' allowfullscreen></iframe>
+	<div class='mt-8 mb-4'>
+		<% if user_signed_in? %>
+			<%= link_to 'Edit', edit_portfolio_item_path(@portfolio_item), class: 'button text-lg ml-0 mt-4 py-3 px-8' %>
+		<% end %>
+	</div>
 </div>
-
-<% if user_signed_in? %>
-	<%= link_to 'Edit', edit_portfolio_item_path(@portfolio_item) %> |
-<% end %>
-
-<%= link_to 'Back', portfolio_items_path %>
