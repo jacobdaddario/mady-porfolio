@@ -5,7 +5,12 @@ class PortfolioItemsController < ApplicationController
 
   # GET /portfolio_items
   def index
-    @portfolio_items = PortfolioItem.all
+    @portfolio_items = PortfolioItem.newest_first
+  end
+
+  # Serves as the root for the site. Displays 3 most recent portfolio items
+  def home
+    @portfolio_items = PortfolioItem.homepage_items
   end
 
   # GET /portfolio_items/1
@@ -50,11 +55,6 @@ class PortfolioItemsController < ApplicationController
     @portfolio_item.destroy
     flash[:notice] = 'Portfolio item was successfully destroyed.'
     redirect_to portfolio_items_url
-  end
-
-  # Serves as the root for the site. Displays 3 most recent portfolio items
-  def home
-    @portfolio_items = PortfolioItem.limit(3)
   end
 
   private

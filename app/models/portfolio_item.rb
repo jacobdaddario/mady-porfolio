@@ -11,6 +11,14 @@ class PortfolioItem < ApplicationRecord
   	message: "requires a complete YouTube URL"
 	}
 
+  def self.newest_first
+    self.order(created_at: :desc)
+  end
+
+  def self.homepage_items
+    newest_first.limit(3)
+  end
+
 	private
 
 		def strip_id
