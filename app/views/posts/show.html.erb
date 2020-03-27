@@ -1,21 +1,29 @@
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<div>
-	<p>Content:</p>
-	<%= @post.content %>
-</div>
-
-<div>
-	<p>Header Image:</p>
-  <% if @post.header_image.attached? && @post.header_image.variable? %>
-		<%= image_tag @post.header_image.variant(resize_to_limit: [100, 100]) %>
+<div class='h-108 w-full bg-teal-300'>
+	<% if @post.header_image.attached? %>
+		<%= image_tag @post.header_image, class: 'w-full h-full object-cover object-center relative z-0', alt: "Article header image" %>
 	<% end %>
 </div>
 
-<% if user_signed_in? %>
-	<%= link_to 'Edit', edit_post_path(@post) %> |
-<% end %>
-<%= link_to 'Back', posts_path %>
+<div class='w-fill max-w-2xl p-4 -mt-84 mb-12 mx-auto card relative z-10'>
+	<div class='mt-6 pb-4 border-b border-pink-500'>
+		<%= content_tag :h1, @post.title, class: 'text-4xl font-semibold font-headline leading-none text-gray-900' %>
+		<p class='mt-2 text-md text-gray-400 font-light leading-snug tracking-wide'>
+	    Published on <%= @post.created_at.to_date.to_s(:long_ordinal) %>
+	  </p>
+	</div>
+
+	<div class='my-4'>
+		<%= content_tag :p, @post.summary, class: 'text-base text-gray-600 leading-tight tracking-wider' %>
+	</div>
+
+	<div class='mt-4 mb-4'>
+		<% if user_signed_in? %>
+			<%= link_to 'Edit', edit_post_path(@post), class: 'button text-md ml-0 mt-4' %>
+		<% end %>
+	</div>
+
+	<div class='my-12'>
+		<%= @post.content %>
+	</div>
+
+</div>
