@@ -1,14 +1,32 @@
-<nav class='absolute left-0 top-0 bg-pink-600 w-full px-32 shadow-md z-50'>
-  <ul class='flex'>
-    <li class='nav-item'><%= link_to("Home", root_path) %></li>
-    <li class='nav-item'><%= link_to("Portfolio", portfolio_items_path) %></li>
-    <li class='nav-item'><%= link_to("Blog", posts_path) %></li>
-    <% if user_signed_in? %>
-    	<li class='nav-item'><%= link_to("New Portfolio Item", new_portfolio_item_path) %></li>
-	    <li class='nav-item'><%= link_to("New Blog Post", new_post_path) %></li>
-      <li class='nav-item ml-auto'><%= link_to("Log Out", destroy_user_session_path, method: :delete) %></li>
-    <% else %>
-      <li class='nav-item ml-auto'><%= link_to("Log In", new_user_session_path) %></li>
-    <% end %>
-  </ul>
+<nav class='absolute flex items-start left-0 top-0 bg-pink-600 w-full shadow-md z-40 lg:px-32 '>
+  <div class='flex flex-col lg:flex-row'>
+    <div class='h-8 w-8 my-3 mx-6 block lg:inline-block'>
+      <%= link_to root_path do %>
+        <svg class='text-pink-200 fill-current hover:text-white' version="1.1" id="Medium_w_x2F__circle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+          <path d="M10,0.3999634c-5.3019409,0-9.5999756,4.2980957-9.5999756,9.6000366S4.6980591,19.5999756,10,19.5999756
+            S19.5999756,15.3019409,19.5999756,10S15.3019409,0.3999634,10,0.3999634z M14.2000122,7.666687h-0.1165771
+            c0,0-0.3500977,0-0.3500977,0.3500977c0,0.3500366,0,3.9666748,0,3.9666748s0,0.3497925,0.3500977,0.3497925h0.1165771v0.9333496
+            h-2.7999878V12.333252h0.4666138V7.9933472h-0.0466309l-1.4301147,5.2732544H9.1304321L7.7133179,7.9933472H7.666687v4.3399048
+            h0.4666748v0.9333496h-2.333374V12.333252h0.1165771c0,0,0.3500977,0,0.3500977-0.3500366s0-3.9667358,0-3.9667358
+            s0-0.3497925-0.3500977-0.3497925H5.7999878V6.7333984H8.895874l1.0858765,4.0408325h0.0357666l1.0959473-4.0408325h3.0865479
+            V7.666687z"/>
+        </svg>
+      <% end %>
+    </div>
+    <div class='hidden lg:flex' data-action="nav">
+      <%= link_to("Portfolio", portfolio_items_path, class: "nav-item") %>
+      <%= link_to("Blog", posts_path, class: "nav-item") %>
+      <% if user_signed_in? %>
+      	<%= link_to("New Portfolio Item", new_portfolio_item_path, class: "nav-item") %>
+  	    <%= link_to("New Blog Post", new_post_path, class: "nav-item") %>
+        <%= link_to("Log Out", destroy_user_session_path, method: :delete, class: "nav-item") %>
+      <% else %>        
+        <%= link_to("Log In", new_user_session_path, class: "nav-item") %>
+      <% end %>
+    </div>
+  </div>
+  <div class='inline-block m-2 py-2 px-4 ml-auto border border-pink-200 rounded z-50 cursor-pointer lg:hidden hover:border-whitez' data-action="toggle-nav">
+    <svg xmlns="http://www.w3.org/2000/svg" class="text-pink-200 fill-current hover:text-white" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/></svg>
+  </div>
 </nav>
