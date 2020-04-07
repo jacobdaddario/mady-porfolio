@@ -15,7 +15,7 @@
   <body>
     <%= render 'layouts/navbar' %>
 
-    <div class="bg-gray-300 min-h-screen <%= "pb-2" unless current_page? root_url %>">
+    <div class="pt-1 bg-gray-300 min-h-screen <%= "pb-2" unless current_page? root_url %>">
       <%= yield %>
     </div>
   </body>
